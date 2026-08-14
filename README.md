@@ -8,7 +8,7 @@ The product catalog is fictional and included only for demonstration. This proje
 
 ## Live Demo
 
-Live demo: deployment pending.
+Live demo: https://electrical-meter-selection-sizing.onrender.com
 
 ## Screenshots
 
