@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Fictional Product Catalog</h2><p>{{notice}}</p><table><tr><th>Meter</th><th>Voltage</th><th>Wiring</th><th>CT</th><th>Protocols</th><th>Use Case</th></tr>{% for p in catalog %}<tr><td>{{p.name}}</td><td>{{p.voltage_min}}-{{p.voltage_max}} V</td><td>{{", ".join(p.wirings)}}</td><td>{{", ".join(p.ct_inputs)}}</td><td>{{", ".join(p.protocols)}}</td><td>{{p.use_case}}</td></tr>{% endfor %}</table></section>
+{% endblock %}

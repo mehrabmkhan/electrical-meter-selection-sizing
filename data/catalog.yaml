@@ -1,0 +1,63 @@
+notice: "DEMONSTRATION PRODUCT CATALOG - not affiliated with any meter manufacturer."
+standard_ct_primaries: [100, 200, 400, 600, 800, 1000, 1200, 1500, 2000, 3000]
+meters:
+  - name: MeterSpec M100
+    voltage_min: 90
+    voltage_max: 300
+    wirings: [1P2W, 1P3W, 3P4W]
+    ct_inputs: [5A]
+    protocols: [Pulse, No communications]
+    measurements: [Voltage, Current, kW, PF, Frequency, kWh]
+    demand: false
+    logging: false
+    power_quality: false
+    mounting: [Panel]
+    use_case: Basic tenant or branch circuit metering
+  - name: MeterSpec DIN24
+    voltage_min: 90
+    voltage_max: 480
+    wirings: [1P2W, 1P3W, 3P3W, 3P4W]
+    ct_inputs: [1A, 5A]
+    protocols: [Modbus RTU, RS-485, Pulse]
+    measurements: [Voltage, Current, kW, kVA, kvar, PF, Frequency, kWh, Demand]
+    demand: true
+    logging: false
+    power_quality: false
+    mounting: [DIN rail, Retrofit, Panel]
+    use_case: Compact retrofit metering with RS-485
+  - name: MeterSpec M200
+    voltage_min: 90
+    voltage_max: 600
+    wirings: [1P2W, 1P3W, 3P3W, 3P4W]
+    ct_inputs: [1A, 5A]
+    protocols: [Modbus RTU, RS-485, Ethernet]
+    measurements: [Voltage, Current, kW, kVA, kvar, PF, Frequency, kWh, Demand]
+    demand: true
+    logging: true
+    power_quality: false
+    mounting: [Panel, Switchboard, Retrofit]
+    use_case: General commercial and industrial energy metering
+  - name: MeterSpec M300
+    voltage_min: 90
+    voltage_max: 690
+    wirings: [3P3W, 3P4W]
+    ct_inputs: [1A, 5A, low-voltage]
+    protocols: [Modbus TCP, Modbus RTU, Ethernet, RS-485, BACnet/IP]
+    measurements: [Voltage, Current, kW, kVA, kvar, PF, Frequency, kWh, Demand, Data logging]
+    demand: true
+    logging: true
+    power_quality: false
+    mounting: [Panel, Switchboard, New installation, Retrofit]
+    use_case: Networked facility metering and EMS integration
+  - name: MeterSpec PQ500
+    voltage_min: 90
+    voltage_max: 690
+    wirings: [3P3W, 3P4W]
+    ct_inputs: [1A, 5A]
+    protocols: [Modbus TCP, Modbus RTU, Ethernet, RS-485, BACnet/IP]
+    measurements: [Voltage, Current, kW, kVA, kvar, PF, Frequency, kWh, Demand, Power Quality indicators, Data logging]
+    demand: true
+    logging: true
+    power_quality: true
+    mounting: [Switchboard, Panel, New installation]
+    use_case: Power quality and main service metering

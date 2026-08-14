@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Technical Result</h2><div class="status">{{solution.status}}</div></section>
+<section class="grid">
+  <div class="panel"><h3>Electrical System</h3><p>{{input.system}} / {{input.wiring}} / {{input.nominal_voltage}} V / {{input.frequency}} Hz</p><p>{{input.maximum_current}} A max, {{input.continuous_current or "unknown"}} A continuous</p></div>
+  <div class="panel"><h3>CT Requirement</h3><p><strong>{{solution.ct.recommended_ratio}}</strong></p><p>Utilization {{solution.ct.utilization}}%, margin {{solution.ct.margin_amps}} A.</p>{% if solution.ct.existing_status %}<p>Existing CT: <span class="{{'fail' if solution.ct.existing_status == 'NOT SUITABLE' else 'pass'}}">{{solution.ct.existing_status}}</span></p>{% endif %}</div>
+  <div class="panel"><h3>PT Requirement</h3><p>{{solution.pt.status}}</p><p>{{solution.pt.reason}}</p></div>
+  <div class="panel"><h3>Communication Architecture</h3><p>{{" -> ".join(solution.architecture.path)}}</p><p>{{solution.architecture.notes}}</p></div>
+</section>
+<section class="panel"><h2>Recommended Meter</h2>{% if solution.recommended %}<p><strong>{{solution.recommended.name}}</strong> Score {{solution.recommended.score}}/100</p><p>{{solution.recommended.why}}</p>{% else %}<p class="fail">No product met every hard requirement.</p>{% endif %}</section>
+<section class="panel"><h2>Alternative</h2>{% if solution.alternative %}<p><strong>{{solution.alternative.name}}</strong> Score {{solution.alternative.score}}/100</p><p>{{solution.alternative.why}}</p>{% else %}<p>No alternative met every hard requirement.</p>{% endif %}</section>
+<section class="panel"><h2>Excluded Products</h2><table><tr><th>Product</th><th>Reason</th></tr>{% for item in solution.excluded %}<tr><td>{{item.product}}</td><td>{{"; ".join(item.reasons)}}</td></tr>{% endfor %}</table></section>
+<section class="panel"><a class="button" href="/reports/commercial_facility.html">DOWNLOAD REPORT</a> <a class="button" href="/compare">COMPARE</a></section>
+{% endblock %}

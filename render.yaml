@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: electrical-meter-selection-sizing
+    runtime: docker
+    plan: free
+    repo: https://github.com/mehrabmkhan/electrical-meter-selection-sizing
+    branch: main
+    healthCheckPath: /api/catalog
